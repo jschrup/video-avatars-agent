@@ -20,20 +20,24 @@ import google.auth
 from google.genai import types
 from google.cloud.storage import Client, Blob
 
-from dotenv import load_dotenv
+from dotenv import dotenv_values
 
-load_dotenv()
-_, project_id = google.auth.default()
+# Load values from .env file into a dictionary
+config = dotenv_values()
+
+# Determine Project ID: 1st from shell env, 2nd from .env, 3rd from gcloud auth default
+_, auth_project_id = google.auth.default()
+project_id = os.environ.get("GOOGLE_CLOUD_PROJECT") or config.get("GOOGLE_CLOUD_PROJECT") or auth_project_id
 os.environ.setdefault("GOOGLE_CLOUD_PROJECT", project_id) # type: ignore
+
 os.environ.setdefault("GOOGLE_CLOUD_LOCATION", "global")
 os.environ.setdefault("GOOGLE_GENAI_USE_VERTEXAI", "True")
 
-project_id = os.environ["GOOGLE_CLOUD_PROJECT"]
-storage_client = Client(project=os.environ.get("GOOGLE_CLOUD_PROJECT"))
-ai_bucket_name = os.environ.get(
-    "AI_ASSETS_BUCKET",
-    f"{project_id}-adk-video-agent"
-)
+storage_client = Client(project=project_id)
+
+# Determine Bucket Name: 1st from shell env, 2nd from .env, 3rd construct a default
+ai_bucket_name = os.environ.get("AI_ASSETS_BUCKET") or config.get("AI_ASSETS_BUCKET") or f"{project_id}-adk-video-agent"
+
 ai_bucket = storage_client.get_bucket(ai_bucket_name)
 md5_hash = hashlib.md5()
 

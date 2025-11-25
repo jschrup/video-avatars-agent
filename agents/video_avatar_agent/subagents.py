@@ -27,7 +27,7 @@ from google.adk.models.llm_request import LlmRequest
 from google.adk.tools import BaseTool, ToolContext
 from google.adk.tools.mcp_tool.mcp_toolset import McpToolset
 from google.adk.tools.mcp_tool.mcp_session_manager import (
-    StreamableHTTPConnectionParams
+    SseConnectionParams
 )
 from google.genai import types
 
@@ -39,18 +39,18 @@ mcp_server_url = os.environ.get(
     "MEDIA_MCP_SERVER_URL",
     "http://localhost:8080"
 ).strip("/")
-if not mcp_server_url.endswith("/mcp"):
-    mcp_server_url += "/mcp"
+if not mcp_server_url.endswith("/sse"):
+    mcp_server_url += "/sse"
 
 mcp_toolset_generate_image = McpToolset(
-    connection_params=StreamableHTTPConnectionParams(
+    connection_params=SseConnectionParams(
         url=mcp_server_url,
     ),
     tool_filter=["generate_image"],
     header_provider=IdentityTokenHeaderProvider(mcp_server_url),
 )
 mcp_toolset_generate_video = McpToolset(
-    connection_params=StreamableHTTPConnectionParams(
+    connection_params=SseConnectionParams(
         url=mcp_server_url,
     ),
     tool_filter=["generate_video"],

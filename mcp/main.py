@@ -18,7 +18,7 @@ import os
 import sys
 
 from fastmcp import FastMCP
-from dotenv import load_dotenv
+
 
 from nano_banana import generate_image
 from veo3 import generate_video
@@ -47,14 +47,39 @@ def _initialize_console_logging(min_level: int = logging.INFO):
 
 
 tools = [generate_image, generate_video]
-mcp = FastMCP(
-    name="MediaGenerators",
-    tools=tools
-)
+
+
+
+
 
 if __name__ == "__main__":
-    load_dotenv()
+
+
     _initialize_console_logging()
+
+
     port = int(os.getenv("PORT", 8080))
+
+
     host = os.getenv("HOST", "0.0.0.0")
-    mcp.run(transport="http", host=host, port=port)
+
+
+    mcp = FastMCP(
+
+
+        name="MediaGenerators",
+
+
+        tools=tools,
+
+
+        host=host,
+
+
+        port=port
+
+
+    )
+
+
+    mcp.run(transport="sse")
