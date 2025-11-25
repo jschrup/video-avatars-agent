@@ -21,7 +21,8 @@ We provide demo assets in the [assets](assets) sub-folder:
     4. Video Shot Instructions.
     5. Document to adapt and split across video chunks.
 
-![Capy image](docs/strip.jpg)
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/0d964673-c7df-4d8e-ad55-6aa304f9b173" />
+
 
 * 📄 Original documentation to deliver as a training video: [Safety and Security for AI Agents](https://google.github.io/adk-docs/safety/).
 * 🎬 **[Final demo video](videos/anya-capy-final.mp4)**.
