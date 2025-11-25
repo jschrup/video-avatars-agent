@@ -21,7 +21,7 @@ We provide demo assets in the [assets](assets) sub-folder:
     4. Video Shot Instructions.
     5. Document to adapt and split across video chunks.
 
-![Capy image](docs/strip.jpg)
+[![Avatar image](docs/output.png)](docs/output.png)
 
 * 📄 Original documentation to deliver as a training video: [Safety and Security for AI Agents](https://google.github.io/adk-docs/safety/).
 * 🎬 **[Final demo video](videos/anya-capy-final.mp4)**.
@@ -36,7 +36,7 @@ We provide demo assets in the [assets](assets) sub-folder:
 It is a full-stack web application designed to be deployed on [Google Cloud Run](https://cloud.google.com/run/docs/overview/what-is-cloud-run?utm_campaign=CDR_0xc245fc42_default_b456742732&utm_medium=external&utm_source=event), with ADK Web UI,
 using [Vertex AI Agent Engine Sessions Service](https://cloud.google.com/vertex-ai/generative-ai/docs/agent-engine/sessions/overview?utm_campaign=CDR_0xc245fc42_default_b456742732&utm_medium=external&utm_source=event) for session management and [Google Cloud Storage](https://cloud.google.com/storage/docs/introduction?utm_campaign=CDR_0xc245fc42_default_b456742732&utm_medium=external&utm_source=event) for storing artifacts.
 
-![Architecture](docs/video-agent-arch.jpg)
+[![Architecture](docs/video-agent-arch.jpg)](docs/video-agent-arch.jpg)
 
 ### Agents
 
@@ -135,10 +135,10 @@ This script will:
 2. Insert content of [assets/prompt.md](assets/prompt.md) file to the chat box.
 3. Click on the paperclip button 📎, and attach 4 source strip files:
 
-    * [assets/view1.jpeg](assets/view1.jpeg)
-    * [assets/view2.jpeg](assets/view3.jpeg)
-    * [assets/view3.jpeg](assets/view3.jpeg)
-    * [assets/view4.jpeg](assets/view4.jpeg)
+    * [assets/view1.png](assets/view1.png)
+    * [assets/view2.png](assets/view2.png)
+    * [assets/view3.png](assets/view3.png)
+    * [assets/view4.png](assets/view4.png)
 
     > **Note:** It is important to select `view1.jpeg` file first.
     > The first view is what the video starts with.
